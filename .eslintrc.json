@@ -1,0 +1,81 @@
+{
+  "root": true,
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "parserOptions": {
+        "project": ["tsconfig.eslint.json"]
+      },
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        // "plugin:@angular-eslint/template/process-inline-templates",
+        // "plugin:prettier/recommended",
+        "plugin:ngrx/recommended"
+      ],
+      "rules": {
+        "max-lines": ["warn", { "max": 700, "skipComments": true, "skipBlankLines": true }],
+        "max-lines-per-function": ["warn", { "max": 40, "skipComments": true, "skipBlankLines": true }],
+        "no-shadow": "off",
+        "@typescript-eslint/no-shadow": ["error"],
+        "@typescript-eslint/prefer-readonly": [
+          "error",
+          {
+            "onlyInlineLambdas": true
+          }
+        ],
+        "no-underscore-dangle": [
+          "error",
+          {
+            "allowAfterThis": true
+          }
+        ],
+        "no-debugger": "error",
+        "curly": "error",
+        "@angular-eslint/contextual-lifecycle": "error",
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "toh",
+            "style": "kebab-case"
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "toh",
+            "style": "camelCase"
+          }
+        ],
+        "ngrx/prefer-concat-latest-from": ["error", { "strict": true }],
+        "ngrx/avoid-mapping-selectors": ["error"],
+        "ngrx/no-multiple-actions-in-effects": ["error"],
+        "ngrx/avoid-dispatching-multiple-actions-sequentially": ["error"]
+      },
+      "plugins": ["ngrx"]
+    },
+    // {
+    //   "files": ["src/**/*.html"],
+    //   "extends": ["plugin:@angular-eslint/template/all"],
+    //   "rules": {
+    //     // "@angular-eslint/template/no-any": "off",
+    //     // "@angular-eslint/template/cyclomatic-complexity": "warn",
+    //     // "@angular-eslint/template/accessibility-elements-content": ["warn"]
+    //     // "@angular-eslint/template/i18n": [
+    //     //   "error",
+    //     //   {
+    //     //     "ignoreAttributes": ["data-qa-id", "autocomplete"]
+    //     //   }
+    //     // ]
+    //   }
+    // },
+    {
+      "files": ["*.spec.ts", "*.mock.ts"],
+      "rules": {
+        "max-lines": ["off"],
+        "max-lines-per-function": ["off"]
+      }
+    }
+  ]
+}
